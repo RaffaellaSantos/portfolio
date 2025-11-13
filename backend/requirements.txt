@@ -1,0 +1,6 @@
+fastapi[standard]
+uvicorn[standard]
+sqlalchemy[standard]
+pymysql[standard]
+cryptography[standard]
+requests[standard]
