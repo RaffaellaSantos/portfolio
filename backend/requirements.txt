@@ -4,3 +4,4 @@ sqlalchemy[standard]
 pymysql[standard]
 cryptography[standard]
 requests[standard]
+pydantic-settings
