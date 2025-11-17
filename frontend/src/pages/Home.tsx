@@ -20,7 +20,7 @@ const Home: React.FC<HomeProps> = ({ navigateTo }) => {
   return (
     <div className="container mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8">
       <div className="text-center bg-white shadow-xl rounded-2xl p-10 md:p-16 border border-gray-100">
-        <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6x1">
+        <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
           Olá, eu sou <span className="text-purple-600">Adriana Raffaella</span>
         </h1>
         <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-600">
