@@ -1,4 +1,6 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi.security import OAuth2PasswordRequestForm
+from .auth import create_access_token, ADMIN_USER, ADMIN_PASS, get_current_user
 from typing import List
 from sqlalchemy.orm import Session
 from .services import get_project_details
@@ -18,6 +20,18 @@ def read_projects(db: Session = Depends(get_db)):
 @router.post("/projetos/detalhes", response_model=ProjectDetail)
 def add_details(
     details: ProjectDetailsCreate,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    current_user: str = Depends(get_current_user)
 ):
     return crud.post_project_details(db=db, details=details)
+
+@router.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    if form_data.username != ADMIN_USER or form_data.password != ADMIN_PASS:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail='Credenciais Inválidas',
+            headers={"WWW-Authenticate": "Bearer"},
+        )
+    access_token = create_access_token(data={"sub": form_data.username})
+    return {"access_token": access_token, "token_type": "bearer"}
