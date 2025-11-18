@@ -9,7 +9,7 @@ def get_github_repos() -> List[RepositorySchema]:
     try:
         headers = {}
         if settings.GITHUB_ACCESS_TOKEN:
-            headers["Authorization"] = f"token {settings.GITHUB_ACCESS_TOKEN}"
+            headers["Authorization"] = f"token {settings.GITHUB_TOKEN}"
         response = requests.get(settings.GITHUB_API_URL, params={"sort": "pushed", "per_page": 10}, headers=headers)
         response.raise_for_status()
         print("Reposta da API:", response.json())
