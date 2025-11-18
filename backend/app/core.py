@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
-    DATABASE_URL_LOCAL: str
+    # DATABASE_URL_LOCAL: str
     DATABASE_URL_SERVER: str
     GITHUB_API_URL: str
     SECRET_KEY: str
