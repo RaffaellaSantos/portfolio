@@ -1,9 +1,11 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from typing import Optional
 
 class Settings(BaseSettings):
-    # DATABASE_URL_LOCAL: str
-    DATABASE_URL_SERVER: str
-    GITHUB_API_URL: str
+    DATABASE_URL_LOCAL: Optional[str] = None
+    DATABASE_URL_SERVER: Optional[str] = None
+    GITHUB_API_URL: Optional[str] = None
+    GITHUB_TOKEN: Optional[str] = None
     SECRET_KEY: str
     ALGORITHM: str
     ACESS_TOKEN_EXPIRE_MINUTES: int

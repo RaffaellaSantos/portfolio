@@ -7,7 +7,10 @@ from . import crud
 
 def get_github_repos() -> List[RepositorySchema]:
     try:
-        response = requests.get(settings.GITHUB_API_URL, params={"sort": "pushed", "per_page": 10})
+        headers = {}
+        if settings.GITHUB_ACCESS_TOKEN:
+            headers["Authorization"] = f"token {settings.GITHUB_ACCESS_TOKEN}"
+        response = requests.get(settings.GITHUB_API_URL, params={"sort": "pushed", "per_page": 10}, headers=headers)
         response.raise_for_status()
         print("Reposta da API:", response.json())
         data = response.json()
