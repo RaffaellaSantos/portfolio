@@ -12,6 +12,7 @@ Portfolio de apresentação em React + FastAPI
 ```
 git clone https://github.com/RaffaellaSantos/portfolio.git  
 cd portfolio  
+git switch local  
 ```
 
 - Suba os serviços com Docker Compose:
