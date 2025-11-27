@@ -1,1 +1,1 @@
-export const API_URL_LOCAL='http://localhost:8000/api/v1'
+export const API_URL='https://portfolio-tiwx.onrender.com/api/v1'

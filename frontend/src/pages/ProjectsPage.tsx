@@ -3,7 +3,7 @@ import PageWrapper from "../components/pageWrapper";
 import ProjectCard from "../components/projectcard";
 import type { ProjectResponse } from "../API/types/types";
 import { AlertTriangle, Loader2 } from "lucide-react";
-import { API_URL_LOCAL } from "../utils/config";
+import { API_URL } from "../utils/config";
 
 const ProjectsPage: React.FC = () => {
   const [projects, setProjects] = useState<ProjectResponse[]>([]);
@@ -16,7 +16,7 @@ const ProjectsPage: React.FC = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch(`${API_URL_LOCAL}/projetos`);
+        const response = await fetch(`${API_URL}/projetos`);
 
         if(!response.ok){
           throw new Error('Falha na API: ${response.statusText}');          
