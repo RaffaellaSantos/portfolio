@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .core import settings
 
-SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL_SERVER
+SQLALCHEMY_DATABASE_URL = settings.DATABASE_URL_LOCAL
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, pool_pre_ping=True

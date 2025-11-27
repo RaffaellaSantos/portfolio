@@ -20,14 +20,14 @@ services:
   backend:
     build: ./backend
     volumes:
-      - ./backend/app:/app
+      - ./backend:/app
     ports:
       - "8000:8000"
     depends_on:
       portfolio_db:
         condition: service_healthy
     environment:
-      DATABASE_URL: mysql+pymysql://root:PaSsWoRd@portfolio_db/portfolio_db
+      DATABASE_URL_LOCAL: "mysql+pymysql://root:PaSsWoRd@portfolio_db/portfolio_db"
     networks:
       - app_networks
 
